@@ -1,0 +1,9 @@
+package dexflix;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Movie {
+	Scanner scanner = new Scanner(new FileReader("Uruguay.txt")).useDelimiter("\\,|\\n");
+}

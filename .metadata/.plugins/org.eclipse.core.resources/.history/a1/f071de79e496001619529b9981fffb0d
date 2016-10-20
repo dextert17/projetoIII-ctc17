@@ -1,0 +1,5 @@
+package dexflix;
+
+public class Movie {
+	Scanner scanner = new Scanner(new FileReader("movies.dat")).useDelimiter("\\,|\\n");
+}

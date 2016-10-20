@@ -1,0 +1,13 @@
+package dexflix;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scanner = new Scanner(new FileReader("movie.dat")).useDelimiter("\\:|\\n");
+	}
+
+}

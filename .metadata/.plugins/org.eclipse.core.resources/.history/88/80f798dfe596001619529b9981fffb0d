@@ -1,0 +1,26 @@
+package dexflix;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scanner = new Scanner(new FileReader("movie.dat")).useDelimiter("\\:|\\n");
+		
+		while (scanner.hasNext()) {
+			int id = scanner.nextInt();
+			String name = scanner.next();
+			String genres = scanner.next();
+			
+			/*Scanner auxscan = new Scanner(genres).useDelimiter("\\|");
+			while (auxscan.hasNext()) {
+				int adj = auxscan.next();
+				city.adjs.add(adj);
+			}*/
+		}
+		
+		System.exit(0);
+	}
+}
