@@ -1,0 +1,11 @@
+package dexflix;
+
+public class Priori {
+	
+	private int rating;
+
+	public int getRating() {
+		return rating;
+	}
+	
+}

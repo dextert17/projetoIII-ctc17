@@ -1,0 +1,17 @@
+package dexflix;
+
+import java.util.ArrayList;
+
+public class Grader {
+	
+	public Grader () {
+		//Método Construtor
+	}
+	
+	public int priori (ArrayList<Rating> ratings, int movieId) {
+		int i;
+		float rating;
+		return 0;
+	}
+	
+}

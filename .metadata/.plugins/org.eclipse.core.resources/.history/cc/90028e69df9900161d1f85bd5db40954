@@ -1,0 +1,9 @@
+package dexflix;
+
+public class Priori {
+	
+	public Priori (User user, Movie movie) {
+		
+	}
+	
+}

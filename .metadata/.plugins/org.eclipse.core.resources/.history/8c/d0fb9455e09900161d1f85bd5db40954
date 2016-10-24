@@ -1,0 +1,9 @@
+package dexflix;
+
+public class Priori {
+	
+	public Sorter () {
+		//Método Construtor
+	}
+	
+}

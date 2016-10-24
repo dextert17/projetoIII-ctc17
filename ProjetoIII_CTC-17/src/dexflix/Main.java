@@ -12,6 +12,7 @@ public class Main {
 		Scanner scanner_movies = new Scanner(new FileReader("movies.dat")).useDelimiter("\\::|\\n");
 		Scanner scanner_ratings = new Scanner(new FileReader("ratings.dat")).useDelimiter("\\::|\\n");
 		Scanner scanner_users = new Scanner(new FileReader("users.dat")).useDelimiter("\\::|\\n");
+		Scanner input = new Scanner(System.in);
 		
 		Movie movie_aux;
 		User user_aux;
@@ -20,7 +21,9 @@ public class Main {
 		ArrayList<User> users = new ArrayList<User>();
 		ArrayList<Rating> ratings = new ArrayList<Rating>();
 		
-		int i;
+		Grader grader = new Grader();
+		
+		int i, index;
 		
 		while (scanner_movies.hasNext()) {
 			int id = scanner_movies.nextInt();
@@ -60,6 +63,28 @@ public class Main {
 			
 			ratings.add(rating_aux);
 		}
+		
+		System.out.print("Digite um ID de Filme: ");
+		while (input.hasNextInt()) {
+			int movieId = input.nextInt();
+			int rating = grader.priori(ratings, movieId);
+			index = 5000;
+			for (i = 0; i < movies.size(); i++) {
+				if (movies.get(i).getId() == movieId) {
+					index = i;
+					break;
+				}
+			}
+			if (index == 5000) {
+				System.out.println("Filme não encontrado\n");
+				System.out.print("Digite outro ID: ");
+			}
+			else {
+				System.out.println("Classificação do Filme " + movies.get(index).getTitle() + ": " + rating + "\n");
+				System.out.print("Digite outro ID: ");
+			}
+		}
+		System.out.println("ID inválido - Aplicação Encerrada");
 		
 		/*for (i = 0; i < movies.size(); i++) {
 			System.out.println("ID: " + movies.get(i).getId());

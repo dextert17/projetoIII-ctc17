@@ -1,0 +1,13 @@
+package dexflix;
+
+public class Grader {
+	
+	public Grader () {
+		//Método Construtor
+	}
+	
+	public int priori () {
+		return 0;
+	}
+	
+}

@@ -7,3 +7,6 @@
 1477308743307	Encapsulate field 'movieId'
 1477308748160	Encapsulate field 'rating'
 1477308753885	Encapsulate field 'timestamp'
+1477309502706	Encapsulate field 'rating'
+1477309979749	Rename type 'Priori'
+1477309993811	Delete element
