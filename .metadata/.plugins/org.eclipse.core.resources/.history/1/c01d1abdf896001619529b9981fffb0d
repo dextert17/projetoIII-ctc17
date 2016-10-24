@@ -1,0 +1,54 @@
+package dexflix;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scanner_movies = new Scanner(new FileReader("movies.dat")).useDelimiter("\\::|\\n");
+		Scanner scanner_ratings = new Scanner(new FileReader("ratings.dat")).useDelimiter("\\::|\\n");
+		Scanner scanner_users = new Scanner(new FileReader("users.dat")).useDelimiter("\\::|\\n");
+		
+		Movie movie;
+		User user;
+		Rating rating;
+		ArrayList<Movie> movies = new ArrayList<Movie>();
+		ArrayList<User> users = new ArrayList<User>();
+		ArrayList<Rating> ratings = new ArrayList<Rating>();
+		
+		int i;
+		
+		while (scanner_movies.hasNext()) {
+			int id = scanner_movies.nextInt();
+			String title = scanner_movies.next();
+			String genres = scanner_movies.next();
+			
+			movie = new Movie (id, title);
+			
+			Scanner auxscan = new Scanner(genres).useDelimiter("\\|");
+			while (auxscan.hasNext()) {
+				String genre = auxscan.next();
+				movie.addGenre(genre);
+			}
+			
+			movies.add(movie);
+		}
+		
+		while (scanner_users.hasNext()) {
+			int id = scanner_users.nextInt();
+			char gender = scanner_users.next();
+		}
+		
+		for (i = 0; i < movies.size(); i++) {
+			System.out.println("ID: " + movies.get(i).getId());
+			System.out.println("Movie: " + movies.get(i).getTitle());
+			System.out.println("Genres: " + movies.get(i).getGenres() + "\n");
+		}
+		
+		System.exit(0);
+	}
+}

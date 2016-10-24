@@ -1,0 +1,11 @@
+package dexflix;
+
+public class User {
+	
+	private int id;
+	private String gender;
+	private int age;
+	private int occupation;
+	private String zipCode;
+	
+}

@@ -1,0 +1,8 @@
+package dexflix;
+
+public class User {
+	
+	private int id;
+	private String gender;
+	
+}

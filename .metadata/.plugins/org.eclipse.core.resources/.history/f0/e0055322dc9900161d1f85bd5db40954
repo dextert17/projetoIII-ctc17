@@ -1,0 +1,23 @@
+package dexflix;
+
+public class User {
+	
+	private int id;
+	private String gender;
+	private int age;
+	private int occupation;
+	private String zipCode;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+}

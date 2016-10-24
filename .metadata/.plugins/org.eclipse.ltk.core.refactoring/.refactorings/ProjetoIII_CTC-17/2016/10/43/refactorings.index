@@ -2,3 +2,4 @@
 1476983055951	Encapsulate field 'name'
 1476983062771	Encapsulate field 'genres'
 1476983290336	Rename field 'name'
+1476988109157	Rename local variable 'scanner'

@@ -1,0 +1,39 @@
+package dexflix;
+
+import java.util.ArrayList;
+
+public class User {
+	
+	private int id;
+	private String gender;
+	private int age;
+	private int occupation;
+	private String zipCode;
+	
+	public User (int id, String title) {
+		this.id = id;
+		this.title = title;
+		genres = new ArrayList<String>();
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public int getOccupation() {
+		return occupation;
+	}
+	
+	public String getZipCode() {
+		return zipCode;
+	}
+	
+}

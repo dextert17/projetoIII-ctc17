@@ -1,0 +1,30 @@
+package dexflix;
+
+public class Rating {
+	
+	private int userId;
+	private int movieId;
+	private int rating;
+	private int timestamp;
+	
+	public Rating () {
+		
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public int getTimestamp() {
+		return timestamp;
+	}
+	
+}
