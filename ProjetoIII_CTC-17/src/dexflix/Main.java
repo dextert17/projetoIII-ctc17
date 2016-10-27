@@ -23,7 +23,7 @@ public class Main {
 		
 		Grader grader = new Grader();
 		
-		int i, index;
+		int i;
 		
 		while (scanner_movies.hasNext()) {
 			int id = scanner_movies.nextInt();
@@ -64,23 +64,36 @@ public class Main {
 			ratings.add(rating_aux);
 		}
 		
+		System.out.print("Digite seu UserId: ");
+		if (!input.hasNextInt()) {
+			System.out.println("ID inválido - Aplicação Encerrada");
+			System.exit(0);
+		}
+		int myId = input.nextInt();
+		int userIndex = myId - 1;
+		if (myId > 6041 || myId < 1) {
+			System.out.println("Usuário não registrado - Aplicação Encerrada");
+			System.exit(0);
+		}
 		System.out.print("Digite um ID de Filme: ");
 		while (input.hasNextInt()) {
 			int movieId = input.nextInt();
-			int rating = grader.priori(ratings, movieId);
-			index = 5000;
+			int movieIndex = 5000;
 			for (i = 0; i < movies.size(); i++) {
 				if (movies.get(i).getId() == movieId) {
-					index = i;
+					movieIndex = i;
 					break;
 				}
 			}
-			if (index == 5000) {
+			int ratingPriori = grader.priori(ratings, movieId);
+			int ratingBayes = grader.naiveBayes(ratings, users, movies, movieIndex, userIndex);
+			if (movieIndex == 5000) {
 				System.out.println("Filme não encontrado\n");
 				System.out.print("Digite outro ID: ");
 			}
 			else {
-				System.out.println("Classificação do Filme " + movies.get(index).getTitle() + ": " + rating + "\n");
+				System.out.println("Classificação do Filme " + movies.get(movieIndex).getTitle() + " a Priori: " + ratingPriori);
+				System.out.println("Classificação do Filme " + movies.get(movieIndex).getTitle() + " por Navie Bayes: " + ratingBayes + "\n");
 				System.out.print("Digite outro ID: ");
 			}
 		}

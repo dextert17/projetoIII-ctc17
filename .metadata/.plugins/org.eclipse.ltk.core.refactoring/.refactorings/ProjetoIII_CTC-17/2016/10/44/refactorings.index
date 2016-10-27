@@ -10,3 +10,4 @@
 1477309502706	Encapsulate field 'rating'
 1477309979749	Rename type 'Priori'
 1477309993811	Delete element
+1477410041334	Rename local variable 'rating'

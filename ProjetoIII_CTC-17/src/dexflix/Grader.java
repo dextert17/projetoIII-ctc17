@@ -26,4 +26,45 @@ public class Grader {
 		return Math.round(rating);
 	}
 	
+	public int naiveBayes (ArrayList<Rating> ratings, ArrayList<User> users, ArrayList<Movie> movies, 
+								int movieIndex, int userIndex) {
+		float probabilities[] = new float[5];
+		float bestProb;
+		int i, rating;
+		for (i = 0; i < probabilities.length; i++) {
+			probabilities[i] = prob (i+1, users.get(userIndex), users, ratings);
+			//System.out.println(probabilities[i]);
+		}
+		bestProb = 0;
+		rating = 0;
+		for (i = 0; i < probabilities.length; i++) {
+			if (probabilities[i] > bestProb) {
+				bestProb = probabilities[i];
+				rating = i+1;
+			}
+		}
+		return rating;
+	}
+	
+	private float prob (int rating, User user, ArrayList<User> users, ArrayList<Rating> ratings) {
+		int favorable_inter, favorable_B, total, i, userIndex;
+		float prob_inter, prob_B, prob;
+		total = 1000219;
+		favorable_inter = 0;
+		favorable_B = 0;
+		for (i = 0; i < ratings.size(); i++) {
+			userIndex = ratings.get(i).getUserId() - 1;
+			if (users.get(userIndex).getAge() == user.getAge()) {
+				favorable_B++;
+				if(ratings.get(i).getRating() == rating) {
+					favorable_inter ++;
+				}
+			}
+		}
+		prob_inter = (float) favorable_inter/total;
+		prob_B = (float) favorable_B/total;
+		prob = prob_inter/prob_B;
+		return prob;
+	}
+	
 }

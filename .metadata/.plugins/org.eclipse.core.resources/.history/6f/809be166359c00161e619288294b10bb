@@ -1,0 +1,57 @@
+package dexflix;
+
+import java.util.ArrayList;
+
+public class Grader {
+	
+	public Grader () {
+		//Método Construtor
+	}
+	
+	public int priori (ArrayList<Rating> ratings, int movieId) {
+		int i, n;
+		float rating;
+		
+		n = 0;
+		rating = 0;
+		for (i = 0; i < ratings.size(); i++) {
+			if(ratings.get(i).getMovieId() == movieId) {
+				rating = rating + ratings.get(i).getRating();
+				n++;
+			}
+		}
+		
+		rating = rating/n;
+		
+		return Math.round(rating);
+	}
+	
+	public int naiveBayes (ArrayList<Rating> ratings, ArrayList<User> users, ArrayList<Movie> movies, 
+								int movieIndex, int userIndex) {
+		float probabilities[] = new float[5];
+		int i;
+		for (i = 0; i < probabilities.length; i++) {
+			probabilities[i] = prob (i+1, users.get(userIndex), users, ratings);
+			System.out.println(probabilities[i]);
+		}
+		return 0;
+	}
+	
+	private float prob (int rating, User user, ArrayList<User> users, ArrayList<Rating> ratings) {
+		int favorable, total, i, userIndex;
+		float prob_inter, prob;
+		total = 1000219;
+		favorable = 0;
+		for (i = 0; i < ratings.size(); i++) {
+			if (ratings.get(i).getRating() == rating) {
+				userIndex = ratings.get(i).getUserId() - 1;
+				if(users.get(userIndex).getAge() == user.getAge()) {
+					favorable ++;
+				}
+			}
+		}
+		prob_inter = (float) favorable/total;
+		return prob_inter;
+	}
+	
+}
