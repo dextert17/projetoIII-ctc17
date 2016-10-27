@@ -33,7 +33,7 @@ public class Grader {
 		int i, rating;
 		for (i = 0; i < probabilities.length; i++) {
 			probabilities[i] = prob (i+1, users.get(userIndex), movies.get(movieIndex), users, ratings, movies);
-			//System.out.println(probabilities[i]);
+			System.out.println(probabilities[i]);
 		}
 		bestProb = 0;
 		rating = 0;

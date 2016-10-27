@@ -32,8 +32,8 @@ public class Grader {
 		float bestProb;
 		int i, rating;
 		for (i = 0; i < probabilities.length; i++) {
-			probabilities[i] = prob (i+1, users.get(userIndex), movies.get(movieIndex), users, ratings, movies);
-			//System.out.println(probabilities[i]);
+			probabilities[i] = prob (i+1, users.get(userIndex), movies.get(movieIndex), users, ratings);
+			System.out.println(probabilities[i]);
 		}
 		bestProb = 0;
 		rating = 0;
@@ -46,8 +46,7 @@ public class Grader {
 		return rating;
 	}
 	
-	private float prob (int rating, User user, Movie movie, 
-							ArrayList<User> users, ArrayList<Rating> ratings, ArrayList<Movie> movies) {
+	private float prob (int rating, User user, Movie movie, ArrayList<User> users, ArrayList<Rating> ratings) {
 		int favorable_inter, favorable_inter2, favorable_A, total, i, j, userIndex, movieIndex;
 		float prob_inter, prob_inter2, prob_A, prob;
 		total = 1000219;
@@ -57,7 +56,7 @@ public class Grader {
 		for (i = 0; i < ratings.size(); i++) {
 			userIndex = ratings.get(i).getUserId() - 1;
 			for (j = 0; j < movies.size(); j++) {
-				if (movies.get(j).getId() == movie.getId()) {
+				if (movies.get(j).getId() == movieId) {
 					movieIndex = j;
 					break;
 				}

@@ -32,7 +32,7 @@ public class Grader {
 		float bestProb;
 		int i, rating;
 		for (i = 0; i < probabilities.length; i++) {
-			probabilities[i] = prob (i+1, users.get(userIndex), movies.get(movieIndex), users, ratings, movies);
+			probabilities[i] = prob (i+1, users.get(userIndex), users, ratings);
 			//System.out.println(probabilities[i]);
 		}
 		bestProb = 0;
@@ -46,37 +46,24 @@ public class Grader {
 		return rating;
 	}
 	
-	private float prob (int rating, User user, Movie movie, 
-							ArrayList<User> users, ArrayList<Rating> ratings, ArrayList<Movie> movies) {
-		int favorable_inter, favorable_inter2, favorable_A, total, i, j, userIndex, movieIndex;
-		float prob_inter, prob_inter2, prob_A, prob;
+	private float prob (int rating, User user, ArrayList<User> users, ArrayList<Rating> ratings) {
+		int favorable_inter, favorable_A, total, i, userIndex;
+		float prob_inter, prob_B, prob;
 		total = 1000219;
 		favorable_inter = 0;
-		favorable_inter2 = 0;
 		favorable_A = 0;
 		for (i = 0; i < ratings.size(); i++) {
 			userIndex = ratings.get(i).getUserId() - 1;
-			for (j = 0; j < movies.size(); j++) {
-				if (movies.get(j).getId() == movie.getId()) {
-					movieIndex = j;
-					break;
-				}
-			}
 			if (ratings.get(i).getRating() == rating) {
 				favorable_A++;
 				if(users.get(userIndex).getAge() == user.getAge()) {
 					favorable_inter ++;
 				}
-				if(users.get(userIndex).getOccupation() == user.getOccupation()) {
-					favorable_inter2 ++;
-				}
 			}
 		}
 		prob_inter = (float) favorable_inter/total;
-		prob_inter2 = (float) favorable_inter2/total;
 		prob_A = (float) favorable_A/total;
-		prob = prob_inter*prob_inter2/prob_A;
-		return prob;
+		return prob_inter;
 	}
 	
 }
