@@ -48,15 +48,16 @@ public class Grader {
 	
 	private float prob (int rating, User user, Movie movie, 
 							ArrayList<User> users, ArrayList<Rating> ratings, ArrayList<Movie> movies) {
-		int favorable_inter, favorable_inter2, favorable_inter3, favorable_inter4, 
+		int favorable_inter, favorable_inter2, favorable_inter3, favorable_inter4, favorable_inter5,
 				favorable_A, total, i, j, userIndex, movieIndex;
-		float prob_inter, prob_inter2, prob_inter3, prob_inter4, prob_A, prob;
+		float prob_inter, prob_inter2, prob_inter3, prob_inter4, prob_inter5, prob_A, prob;
 		movieIndex = 0;
 		total = 1000219;
 		favorable_inter = 0;
 		favorable_inter2 = 0;
 		favorable_inter3 = 0;
 		favorable_inter4 = 0;
+		favorable_inter5 = 0;
 		favorable_A = total;
 		for (i = 0; i < ratings.size(); i++) {
 			userIndex = ratings.get(i).getUserId() - 1;
@@ -82,14 +83,18 @@ public class Grader {
 				if(users.get(userIndex).getGender().equals(user.getGender())) {
 					favorable_inter4 ++;
 				}
+				if (ratings.get(i).getMovieId() == movie.getId()) {
+					favorable_inter5 ++;
+				}
 			}
 		}
 		prob_inter = (float) favorable_inter/total;
 		prob_inter2 = (float) favorable_inter2/total;
 		prob_inter3 = (float) favorable_inter3/total;
 		prob_inter4 = (float) favorable_inter4/total;
+		prob_inter5 = (float) favorable_inter5/total;
 		prob_A = (float) favorable_A/total;
-		prob = prob_inter*prob_inter2*prob_inter3*prob_inter4/(prob_A*prob_A*prob_A);
+		prob = prob_inter*prob_inter2*prob_inter3*prob_inter4*prob_inter5/(prob_A*prob_A*prob_A*prob_A);
 		return prob;
 	}
 	
