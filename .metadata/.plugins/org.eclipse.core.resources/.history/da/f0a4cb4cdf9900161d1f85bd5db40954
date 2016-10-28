@@ -1,7 +1,0 @@
-package dexflix;
-
-public class Priori {
-	
-	private int rating;
-	
-}

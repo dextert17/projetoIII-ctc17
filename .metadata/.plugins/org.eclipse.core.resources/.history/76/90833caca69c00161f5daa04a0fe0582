@@ -79,17 +79,17 @@ public class Grader {
 						favorable_inter3 ++;
 					}
 				}
-				if(users.get(userIndex).getGender().equals(user.getGender())) {
+				/*if(users.get(userIndex).getGender() == user.getGender()) {
 					favorable_inter4 ++;
-				}
+				}*/
 			}
 		}
 		prob_inter = (float) favorable_inter/total;
 		prob_inter2 = (float) favorable_inter2/total;
 		prob_inter3 = (float) favorable_inter3/total;
-		prob_inter4 = (float) favorable_inter4/total;
+		//prob_inter4 = (float) favorable_inter4/total;
 		prob_A = (float) favorable_A/total;
-		prob = prob_inter*prob_inter2*prob_inter3*prob_inter4/(prob_A*prob_A*prob_A);
+		prob = prob_inter*prob_inter2*prob_inter3/(prob_A*prob_A);
 		return prob;
 	}
 	

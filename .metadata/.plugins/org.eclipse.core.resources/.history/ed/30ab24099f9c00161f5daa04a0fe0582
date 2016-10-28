@@ -53,10 +53,10 @@ public class Grader {
 		float prob_inter, prob_inter2, prob_inter3, prob_inter4, prob_A, prob;
 		movieIndex = 0;
 		total = 1000219;
-		favorable_inter = 0;
-		favorable_inter2 = 0;
-		favorable_inter3 = 0;
-		favorable_inter4 = 0;
+		favorable_inter = total;
+		favorable_inter2 = total;
+		favorable_inter3 = total;
+		favorable_inter4 = total;
 		favorable_A = total;
 		for (i = 0; i < ratings.size(); i++) {
 			userIndex = ratings.get(i).getUserId() - 1;
@@ -79,17 +79,16 @@ public class Grader {
 						favorable_inter3 ++;
 					}
 				}
-				if(users.get(userIndex).getGender().equals(user.getGender())) {
-					favorable_inter4 ++;
+				if(users.get(userIndex).getGender() == user.getGender()) {
+					
 				}
 			}
 		}
 		prob_inter = (float) favorable_inter/total;
 		prob_inter2 = (float) favorable_inter2/total;
 		prob_inter3 = (float) favorable_inter3/total;
-		prob_inter4 = (float) favorable_inter4/total;
 		prob_A = (float) favorable_A/total;
-		prob = prob_inter*prob_inter2*prob_inter3*prob_inter4/(prob_A*prob_A*prob_A);
+		prob = prob_inter*prob_inter2*prob_inter3/(prob_A*prob_A);
 		return prob;
 	}
 	

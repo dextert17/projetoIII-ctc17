@@ -1,9 +1,0 @@
-package dexflix;
-
-public class Grader {
-	
-	public Grader () {
-		//Método Construtor
-	}
-	
-}

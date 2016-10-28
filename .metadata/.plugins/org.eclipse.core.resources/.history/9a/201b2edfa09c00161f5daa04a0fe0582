@@ -79,9 +79,9 @@ public class Grader {
 						favorable_inter3 ++;
 					}
 				}
-				if(users.get(userIndex).getGender().equals(user.getGender())) {
+				/*if(users.get(userIndex).getGender() == user.getGender()) {
 					favorable_inter4 ++;
-				}
+				}*/
 			}
 		}
 		prob_inter = (float) favorable_inter/total;

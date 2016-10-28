@@ -93,7 +93,7 @@ public class Main {
 			}
 			else {
 				System.out.println("Classificação do Filme " + movies.get(movieIndex).getTitle() + " a Priori: " + ratingPriori);
-				System.out.println("Classificação do Filme " + movies.get(movieIndex).getTitle() + " por Naive Bayes: " + ratingBayes + "\n");
+				System.out.println("Classificação do Filme " + movies.get(movieIndex).getTitle() + " por Navie Bayes: " + ratingBayes + "\n");
 				System.out.print("Digite outro ID: ");
 			}
 		}
